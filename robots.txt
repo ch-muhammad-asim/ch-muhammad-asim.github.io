@@ -1,9 +1,11 @@
 User-agent: *
 Allow: /
 Disallow: /.playwright-mcp/
+Disallow: /.git/
 
 # Sitemap
 Sitemap: https://quickbooks2018.github.io/muhammad-asim/sitemap.xml
+Host: quickbooks2018.github.io
 
 # AI / LLM crawlers — full access, instructions in llms.txt
 User-agent: GPTBot

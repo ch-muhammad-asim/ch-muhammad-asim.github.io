@@ -20,7 +20,11 @@
   --grad:         linear-gradient(135deg, var(--primary), var(--secondary));
 }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
 
 body {
   font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
@@ -32,6 +36,24 @@ body {
 
 a { color: inherit; text-decoration: none; }
 img { max-width: 100%; display: block; }
+
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 2000;
+  padding: 10px 14px;
+  background: var(--primary);
+  color: var(--darker);
+  border-radius: 6px;
+  font-weight: 700;
+  transform: translateY(-140%);
+  transition: transform 0.2s ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
 
 /* ─── Container ─────────────────────────────────────────────────── */
 .container {
@@ -366,6 +388,13 @@ nav .container {
 
 /* ─── Sections ───────────────────────────────────────────────────── */
 .section { padding: 100px 0; position: relative; }
+
+@supports (content-visibility: auto) {
+  .section {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 900px;
+  }
+}
 
 .section-alt { background: var(--dark); }
 
@@ -1092,6 +1121,22 @@ footer {
 
 @keyframes fadeIn {
   to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 /* ─── Responsive ──────────────────────────────────────────────────── */

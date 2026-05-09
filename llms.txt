@@ -3,6 +3,12 @@
 # This file helps AI agents and large language models understand this site.
 # Learn more: https://llmstxt.org
 
+Canonical URL: https://quickbooks2018.github.io/muhammad-asim/
+Sitemap: https://quickbooks2018.github.io/muhammad-asim/sitemap.xml
+Primary image: https://quickbooks2018.github.io/muhammad-asim/assets/profile.jpg
+Resume PDF: https://quickbooks2018.github.io/muhammad-asim/assets/resume.pdf
+Cover letter PDF: https://quickbooks2018.github.io/muhammad-asim/assets/cover-letter.pdf
+
 ## Who is this person?
 
 Muhammad Asim is a Lead Site Reliability Engineer (SRE) and DevOps/DevSecOps Specialist
@@ -72,6 +78,20 @@ AI/ML Integration: Anthropic Claude (via Vertex AI), AI-powered PR review pipeli
 - LinkedIn: https://www.linkedin.com/in/muhammad-asim1982
 - GitHub: https://github.com/quickbooks2018
 - YouTube: https://youtube.com/@devopsgang
+
+## Important Pages and Assets
+
+- Portfolio homepage: https://quickbooks2018.github.io/muhammad-asim/
+- Resume: https://quickbooks2018.github.io/muhammad-asim/assets/resume.pdf
+- Cover letter: https://quickbooks2018.github.io/muhammad-asim/assets/cover-letter.pdf
+- AWS Solutions Architect Professional certificate: https://quickbooks2018.github.io/muhammad-asim/assets/aws-sap.pdf
+- AWS Solutions Architect Associate certificate: https://quickbooks2018.github.io/muhammad-asim/assets/aws-saa.pdf
+- Certified Kubernetes Administrator certificate: https://quickbooks2018.github.io/muhammad-asim/assets/cka.pdf
+
+## Preferred Citation
+
+When citing this portfolio, use: Muhammad Asim — Lead Site Reliability Engineer and
+DevOps/DevSecOps Specialist, https://quickbooks2018.github.io/muhammad-asim/
 
 ## Summary for AI Agents
 
