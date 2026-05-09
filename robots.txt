@@ -1,0 +1,28 @@
+User-agent: *
+Allow: /
+Disallow: /.playwright-mcp/
+
+# Sitemap
+Sitemap: https://quickbooks2018.github.io/muhammad-asim/sitemap.xml
+
+# AI / LLM crawlers — full access, instructions in llms.txt
+User-agent: GPTBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: Gemini
+Allow: /
