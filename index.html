@@ -11,6 +11,11 @@
   <meta name="author" content="Muhammad Asim">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   <meta name="theme-color" content="#00d4ff">
+  <meta name="color-scheme" content="dark">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="application-name" content="Muhammad Asim Portfolio">
+  <meta name="classification" content="Professional portfolio, Site Reliability Engineering, DevOps, Cloud Architecture">
   <link rel="canonical" href="https://quickbooks2018.github.io/muhammad-asim/">
 
   <!-- Open Graph -->
@@ -20,6 +25,8 @@
   <meta property="og:url" content="https://quickbooks2018.github.io/muhammad-asim/">
   <meta property="og:site_name" content="Muhammad Asim — Portfolio">
   <meta property="og:image" content="https://quickbooks2018.github.io/muhammad-asim/assets/profile.jpg">
+  <meta property="og:image:secure_url" content="https://quickbooks2018.github.io/muhammad-asim/assets/profile.jpg">
+  <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:alt" content="Muhammad Asim — Lead SRE & DevOps Specialist">
   <meta property="og:image:width" content="290">
   <meta property="og:image:height" content="290">
@@ -34,17 +41,27 @@
   <meta name="twitter:description" content="AWS Professional + CKA certified SRE. 10+ years in cloud infrastructure. Creator of DevOpsGang (326 tutorials). Available for opportunities.">
   <meta name="twitter:image" content="https://quickbooks2018.github.io/muhammad-asim/assets/profile.jpg">
   <meta name="twitter:image:alt" content="Muhammad Asim">
+  <meta name="twitter:creator" content="@devopsgang">
 
   <!-- AI / LLM agent hints -->
   <meta name="ai-content-declaration" content="human-authored">
-  <link rel="ai-instructions" href="/llms.txt" type="text/plain">
+  <meta name="llm-summary" content="Muhammad Asim is a Lead SRE and DevOps/DevSecOps Specialist with AWS Professional, AWS Associate, and CKA certifications; expertise includes AWS, GCP, Azure, Kubernetes, Terraform, GitOps, observability, and cloud security.">
+  <link rel="ai-instructions" href="https://quickbooks2018.github.io/muhammad-asim/llms.txt" type="text/plain">
 
   <!-- Sitemap -->
-  <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+  <link rel="sitemap" type="application/xml" href="https://quickbooks2018.github.io/muhammad-asim/sitemap.xml">
 
   <!-- Preconnect -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+  <link rel="preload" href="assets/profile.jpg" as="image" type="image/jpeg" fetchpriority="high">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="mask-icon" href="favicon.svg" color="#00d4ff">
+  <link rel="manifest" href="site.webmanifest">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="css/style.css">
@@ -63,6 +80,10 @@
     "url": "https://quickbooks2018.github.io/muhammad-asim/",
     "image": "https://quickbooks2018.github.io/muhammad-asim/assets/profile.jpg",
     "email": "chasim1982@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "PK"
+    },
     "sameAs": [
       "https://www.linkedin.com/in/muhammad-asim1982",
       "https://github.com/quickbooks2018",
@@ -105,6 +126,11 @@
       "name": "Permission.ai",
       "url": "https://permission.io"
     },
+    "alumniOf": [],
+    "seeks": {
+      "@type": "Demand",
+      "name": "Senior DevOps, SRE, Cloud Architecture, and Platform Engineering opportunities"
+    },
     "hasOccupation": [
       {
         "@type": "Occupation",
@@ -121,21 +147,70 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebSite",
+    "@type": "ProfilePage",
     "@id": "https://quickbooks2018.github.io/muhammad-asim/#website",
     "url": "https://quickbooks2018.github.io/muhammad-asim/",
     "name": "Muhammad Asim — Lead SRE & DevOps Specialist",
     "description": "Professional portfolio of Muhammad Asim, Lead SRE & DevOps/DevSecOps Specialist.",
-    "author": { "@id": "https://quickbooks2018.github.io/muhammad-asim/#person" }
+    "inLanguage": "en",
+    "about": { "@id": "https://quickbooks2018.github.io/muhammad-asim/#person" },
+    "author": { "@id": "https://quickbooks2018.github.io/muhammad-asim/#person" },
+    "mainEntity": { "@id": "https://quickbooks2018.github.io/muhammad-asim/#person" },
+    "hasPart": [
+      { "@id": "https://quickbooks2018.github.io/muhammad-asim/#skills-list" },
+      { "@id": "https://quickbooks2018.github.io/muhammad-asim/#certifications-list" },
+      { "@id": "https://quickbooks2018.github.io/muhammad-asim/#download-resume" }
+    ]
+  }
+  </script>
+
+  <!-- Schema.org — Skills, Certifications & Resume Download -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ItemList",
+        "@id": "https://quickbooks2018.github.io/muhammad-asim/#skills-list",
+        "name": "Muhammad Asim Core Technical Skills",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Cloud Platforms: AWS, GCP, Azure" },
+          { "@type": "ListItem", "position": 2, "name": "Kubernetes: EKS, GKE, AKS, Helm, ArgoCD, FluxCD, Istio" },
+          { "@type": "ListItem", "position": 3, "name": "Infrastructure as Code: Terraform, Terragrunt, Ansible, Packer, OPA" },
+          { "@type": "ListItem", "position": 4, "name": "CI/CD and GitOps: GitHub Actions, Jenkins, GitLab CI, Spinnaker" },
+          { "@type": "ListItem", "position": 5, "name": "Observability and SRE: Prometheus, Grafana, Datadog, ELK, PagerDuty, SLOs" },
+          { "@type": "ListItem", "position": 6, "name": "Security and DevSecOps: Trivy, Snyk, HashiCorp Vault, zero-trust architecture" }
+        ]
+      },
+      {
+        "@type": "ItemList",
+        "@id": "https://quickbooks2018.github.io/muhammad-asim/#certifications-list",
+        "name": "Muhammad Asim Professional Certifications",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "AWS Certified Solutions Architect - Professional" },
+          { "@type": "ListItem", "position": 2, "name": "AWS Certified Solutions Architect - Associate" },
+          { "@type": "ListItem", "position": 3, "name": "Certified Kubernetes Administrator (CKA)" }
+        ]
+      },
+      {
+        "@type": "DigitalDocument",
+        "@id": "https://quickbooks2018.github.io/muhammad-asim/#download-resume",
+        "name": "Muhammad Asim Resume",
+        "encodingFormat": "application/pdf",
+        "url": "https://quickbooks2018.github.io/muhammad-asim/assets/resume.pdf",
+        "about": { "@id": "https://quickbooks2018.github.io/muhammad-asim/#person" }
+      }
+    ]
   }
   </script>
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <nav aria-label="Main navigation">
     <div class="container">
       <a href="#home" class="logo" aria-label="Muhammad Asim Home">MA</a>
-      <ul class="nav-links" role="list">
+      <ul class="nav-links" id="primary-navigation" role="list">
         <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#experience">Experience</a></li>
@@ -144,18 +219,19 @@
         <li><a href="#community">Community</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <button class="mobile-menu-btn" aria-label="Toggle navigation menu">
+      <button class="mobile-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="primary-navigation">
         <i class="fas fa-bars"></i>
       </button>
     </div>
   </nav>
 
+  <main id="main-content">
   <!-- Hero Section -->
   <section class="hero" id="home" aria-label="Home">
     <div class="hero-bg-grid"></div>
     <div class="hero-content">
       <div class="hero-photo">
-        <img src="assets/profile.jpg" alt="Muhammad Asim — Lead SRE & DevOps Specialist" width="100" height="100">
+        <img src="assets/profile.jpg" alt="Muhammad Asim — Lead SRE & DevOps Specialist" width="100" height="100" fetchpriority="high" decoding="async">
       </div>
       <div class="hero-status">
         <span class="status-dot"></span> Available for Opportunities
@@ -216,7 +292,7 @@
         <div class="about-visual">
           <div class="about-avatar">
             <div class="avatar-bg photo">
-              <img src="assets/profile.jpg" alt="Muhammad Asim" width="220" height="220">
+              <img src="assets/profile.jpg" alt="Muhammad Asim, Lead Site Reliability Engineer and DevOps specialist" width="220" height="220" loading="lazy" decoding="async">
             </div>
             <div class="avatar-glow"></div>
           </div>
@@ -590,6 +666,7 @@
       </div>
     </div>
   </section>
+  </main>
 
   <!-- Footer -->
   <footer aria-label="Footer">

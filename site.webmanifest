@@ -1,0 +1,33 @@
+{
+  "name": "Muhammad Asim — Lead SRE & DevOps Specialist",
+  "short_name": "M. Asim",
+  "description": "Portfolio of Muhammad Asim — Lead Site Reliability Engineer & DevOps/DevSecOps Specialist. AWS Professional & CKA certified.",
+  "icons": [
+    {
+      "src": "favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "theme_color": "#00d4ff",
+  "background_color": "#0a0a0f",
+  "display": "standalone",
+  "start_url": "./",
+  "scope": "./"
+}
