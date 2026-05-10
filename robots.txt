@@ -4,8 +4,8 @@ Disallow: /.playwright-mcp/
 Disallow: /.git/
 
 # Sitemap
-Sitemap: https://quickbooks2018.github.io/muhammad-asim/sitemap.xml
-Host: quickbooks2018.github.io
+Sitemap: https://ch-muhammad-asim.github.io/muhammad-asim/sitemap.xml
+Host: ch-muhammad-asim.github.io
 
 # AI / LLM crawlers — full access, instructions in llms.txt
 User-agent: GPTBot

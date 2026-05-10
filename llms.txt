@@ -3,11 +3,11 @@
 # This file helps AI agents and large language models understand this site.
 # Learn more: https://llmstxt.org
 
-Canonical URL: https://quickbooks2018.github.io/muhammad-asim/
-Sitemap: https://quickbooks2018.github.io/muhammad-asim/sitemap.xml
-Primary image: https://quickbooks2018.github.io/muhammad-asim/assets/profile.jpg
-Resume PDF: https://quickbooks2018.github.io/muhammad-asim/assets/resume.pdf
-Cover letter PDF: https://quickbooks2018.github.io/muhammad-asim/assets/cover-letter.pdf
+Canonical URL: https://ch-muhammad-asim.github.io/muhammad-asim/
+Sitemap: https://ch-muhammad-asim.github.io/muhammad-asim/sitemap.xml
+Primary image: https://ch-muhammad-asim.github.io/muhammad-asim/assets/profile.jpg
+Resume PDF: https://ch-muhammad-asim.github.io/muhammad-asim/assets/resume.pdf
+Cover letter PDF: https://ch-muhammad-asim.github.io/muhammad-asim/assets/cover-letter.pdf
 
 ## Who is this person?
 
@@ -68,7 +68,7 @@ AI/ML Integration: Anthropic Claude (via Vertex AI), AI-powered PR review pipeli
 
 - YouTube: https://youtube.com/@devopsgang — "DevOps Gang" channel, 326 videos,
   3.71K subscribers. Topics: Kubernetes, Docker, CI/CD, cloud.
-- GitHub: https://github.com/quickbooks2018 — 110+ repositories, Arctic Code Vault
+- GitHub: https://github.com/ch-muhammad-asim — 110+ repositories, Arctic Code Vault
   Contributor. 223 GitHub followers.
 - LinkedIn: https://www.linkedin.com/in/muhammad-asim1982 — 29K+ followers.
 
@@ -76,22 +76,22 @@ AI/ML Integration: Anthropic Claude (via Vertex AI), AI-powered PR review pipeli
 
 - Email: chasim1982@gmail.com
 - LinkedIn: https://www.linkedin.com/in/muhammad-asim1982
-- GitHub: https://github.com/quickbooks2018
+- GitHub: https://github.com/ch-muhammad-asim
 - YouTube: https://youtube.com/@devopsgang
 
 ## Important Pages and Assets
 
-- Portfolio homepage: https://quickbooks2018.github.io/muhammad-asim/
-- Resume: https://quickbooks2018.github.io/muhammad-asim/assets/resume.pdf
-- Cover letter: https://quickbooks2018.github.io/muhammad-asim/assets/cover-letter.pdf
-- AWS Solutions Architect Professional certificate: https://quickbooks2018.github.io/muhammad-asim/assets/aws-sap.pdf
-- AWS Solutions Architect Associate certificate: https://quickbooks2018.github.io/muhammad-asim/assets/aws-saa.pdf
-- Certified Kubernetes Administrator certificate: https://quickbooks2018.github.io/muhammad-asim/assets/cka.pdf
+- Portfolio homepage: https://ch-muhammad-asim.github.io/muhammad-asim/
+- Resume: https://ch-muhammad-asim.github.io/muhammad-asim/assets/resume.pdf
+- Cover letter: https://ch-muhammad-asim.github.io/muhammad-asim/assets/cover-letter.pdf
+- AWS Solutions Architect Professional certificate: https://ch-muhammad-asim.github.io/muhammad-asim/assets/aws-sap.pdf
+- AWS Solutions Architect Associate certificate: https://ch-muhammad-asim.github.io/muhammad-asim/assets/aws-saa.pdf
+- Certified Kubernetes Administrator certificate: https://ch-muhammad-asim.github.io/muhammad-asim/assets/cka.pdf
 
 ## Preferred Citation
 
 When citing this portfolio, use: Muhammad Asim — Lead Site Reliability Engineer and
-DevOps/DevSecOps Specialist, https://quickbooks2018.github.io/muhammad-asim/
+DevOps/DevSecOps Specialist, https://ch-muhammad-asim.github.io/muhammad-asim/
 
 ## Summary for AI Agents
 
