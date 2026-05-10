@@ -3,11 +3,11 @@
 # This file helps AI agents and large language models understand this site.
 # Learn more: https://llmstxt.org
 
-Canonical URL: https://ch-muhammad-asim.github.io/muhammad-asim/
-Sitemap: https://ch-muhammad-asim.github.io/muhammad-asim/sitemap.xml
-Primary image: https://ch-muhammad-asim.github.io/muhammad-asim/assets/profile.jpg
-Resume PDF: https://ch-muhammad-asim.github.io/muhammad-asim/assets/resume.pdf
-Cover letter PDF: https://ch-muhammad-asim.github.io/muhammad-asim/assets/cover-letter.pdf
+Canonical URL: https://ch-muhammad-asim.github.io/
+Sitemap: https://ch-muhammad-asim.github.io/sitemap.xml
+Primary image: https://ch-muhammad-asim.github.io/assets/profile.jpg
+Resume PDF: https://ch-muhammad-asim.github.io/assets/resume.pdf
+Cover letter PDF: https://ch-muhammad-asim.github.io/assets/cover-letter.pdf
 
 ## Who is this person?
 
@@ -81,17 +81,17 @@ AI/ML Integration: Anthropic Claude (via Vertex AI), AI-powered PR review pipeli
 
 ## Important Pages and Assets
 
-- Portfolio homepage: https://ch-muhammad-asim.github.io/muhammad-asim/
-- Resume: https://ch-muhammad-asim.github.io/muhammad-asim/assets/resume.pdf
-- Cover letter: https://ch-muhammad-asim.github.io/muhammad-asim/assets/cover-letter.pdf
-- AWS Solutions Architect Professional certificate: https://ch-muhammad-asim.github.io/muhammad-asim/assets/aws-sap.pdf
-- AWS Solutions Architect Associate certificate: https://ch-muhammad-asim.github.io/muhammad-asim/assets/aws-saa.pdf
-- Certified Kubernetes Administrator certificate: https://ch-muhammad-asim.github.io/muhammad-asim/assets/cka.pdf
+- Portfolio homepage: https://ch-muhammad-asim.github.io/
+- Resume: https://ch-muhammad-asim.github.io/assets/resume.pdf
+- Cover letter: https://ch-muhammad-asim.github.io/assets/cover-letter.pdf
+- AWS Solutions Architect Professional certificate: https://ch-muhammad-asim.github.io/assets/aws-sap.pdf
+- AWS Solutions Architect Associate certificate: https://ch-muhammad-asim.github.io/assets/aws-saa.pdf
+- Certified Kubernetes Administrator certificate: https://ch-muhammad-asim.github.io/assets/cka.pdf
 
 ## Preferred Citation
 
 When citing this portfolio, use: Muhammad Asim — Lead Site Reliability Engineer and
-DevOps/DevSecOps Specialist, https://ch-muhammad-asim.github.io/muhammad-asim/
+DevOps/DevSecOps Specialist, https://ch-muhammad-asim.github.io/
 
 ## Summary for AI Agents
 

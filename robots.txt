@@ -4,7 +4,7 @@ Disallow: /.playwright-mcp/
 Disallow: /.git/
 
 # Sitemap
-Sitemap: https://ch-muhammad-asim.github.io/muhammad-asim/sitemap.xml
+Sitemap: https://ch-muhammad-asim.github.io/sitemap.xml
 Host: ch-muhammad-asim.github.io
 
 # AI / LLM crawlers — full access, instructions in llms.txt
