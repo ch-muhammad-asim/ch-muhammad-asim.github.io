@@ -1131,19 +1131,19 @@ footer {
   to { opacity: 1; }
 }
 
+/* Reduced motion: kill the movement that tracks the user (scroll-linked
+   entrances, smooth scrolling, hover travel) but keep the ambient loops.
+   Blanketing `*` here also silenced every decorative animation, which left
+   the whole page static for anyone with the OS setting enabled. */
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    scroll-behavior: auto !important;
-    transition-duration: 0.01ms !important;
-  }
+  html { scroll-behavior: auto !important; }
 
-  .reveal {
-    opacity: 1;
-    transform: none;
+  .reveal,
+  .reveal.stagger > * {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
   }
 }
 
@@ -1355,13 +1355,192 @@ footer {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .reveal.stagger > *:not(.timeline-line) { opacity: 1; transform: none; }
   .timeline-line { transform: scaleY(1); }
   .hero-pipeline { opacity: 1; }
-  .marker-dot::after { display: none; }
+  .marker-dot::after { display: none; }   /* expanding ripple is the one loop worth dropping */
 }
 
 @media (max-width: 640px) {
-  /* pipeline strip does not fit a phone width — drop it */
-  .hero-pipeline { display: none; }
+  /* pipeline strip: wrap to two rows instead of disappearing on phones */
+  .hero-pipeline { flex-wrap: wrap; gap: 8px; }
+  .pipe-stage { font-size: 0.66rem; padding: 5px 11px; }
+  .pipe-arrow { width: 16px; }
+}
+
+/* ─── Always-on motion ────────────────────────────────────────────── */
+
+/* Name: gradient sweeps continuously across the text */
+.highlight {
+  background: linear-gradient(110deg, var(--primary), var(--accent), var(--secondary), var(--primary));
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: gradientSweep 8s linear infinite;
+}
+
+@keyframes gradientSweep {
+  to { background-position: -300% 0; }
+}
+
+/* Hero photo: bounces like a ball + breathing halo.
+   ballBounce is listed last so it owns `transform` once fadeInUp settles. */
+.hero-photo {
+  transform-origin: 50% 100%;   /* squash from the point of impact */
+  animation: fadeInUp 0.7s ease 0s forwards,
+             haloPulse 3.4s ease-in-out 0.8s infinite,
+             ballBounce 1.9s 0.8s infinite;
+}
+
+@keyframes haloPulse {
+  0%, 100% { box-shadow: 0 0 22px rgba(0,212,255,0.20); }
+  50%      { box-shadow: 0 0 44px rgba(0,212,255,0.45); }
+}
+
+/* Gravity feel: decelerate on the way up, accelerate on the way down,
+   squash on contact, stretch mid-flight. */
+@keyframes ballBounce {
+  0%   { transform: translateY(0)     scale(1, 1);       animation-timing-function: ease-out; }
+  6%   { transform: translateY(0)     scale(1.14, 0.84); animation-timing-function: ease-out; }   /* squash */
+  16%  { transform: translateY(-14px) scale(0.94, 1.09); animation-timing-function: ease-out; }   /* stretch, launching */
+  38%  { transform: translateY(-34px) scale(1, 1);       animation-timing-function: ease-in;  }   /* apex */
+  58%  { transform: translateY(-6px)  scale(0.95, 1.07); animation-timing-function: ease-in;  }   /* stretch, falling */
+  64%  { transform: translateY(0)     scale(1.16, 0.82); animation-timing-function: ease-out; }   /* impact */
+  74%  { transform: translateY(-9px)  scale(0.98, 1.03); animation-timing-function: ease-in;  }   /* small rebound */
+  82%  { transform: translateY(0)     scale(1.08, 0.9);  animation-timing-function: ease-out; }
+  88%  { transform: translateY(-3px)  scale(1, 1);       animation-timing-function: ease-in;  }   /* settling */
+  92%, 100% { transform: translateY(0) scale(1, 1); }
+}
+
+/* Ambient orbs drifting behind the hero */
+.hero-orbs {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.5;
+}
+
+.orb-1 {
+  width: 340px; height: 340px;
+  top: -60px; left: -80px;
+  background: radial-gradient(circle, rgba(0,212,255,0.35), transparent 70%);
+  animation: orbDrift1 22s ease-in-out infinite;
+}
+
+.orb-2 {
+  width: 280px; height: 280px;
+  bottom: -70px; right: -60px;
+  background: radial-gradient(circle, rgba(168,85,247,0.32), transparent 70%);
+  animation: orbDrift2 27s ease-in-out infinite;
+}
+
+.orb-3 {
+  width: 220px; height: 220px;
+  top: 45%; left: 55%;
+  background: radial-gradient(circle, rgba(123,44,191,0.28), transparent 70%);
+  animation: orbDrift3 19s ease-in-out infinite;
+}
+
+@keyframes orbDrift1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%      { transform: translate(90px, 60px) scale(1.15); }
+}
+
+@keyframes orbDrift2 {
+  0%, 100% { transform: translate(0, 0) scale(1.1); }
+  50%      { transform: translate(-80px, -70px) scale(0.95); }
+}
+
+@keyframes orbDrift3 {
+  0%, 100% { transform: translate(0, 0); }
+  33%      { transform: translate(-70px, 40px); }
+  66%      { transform: translate(60px, -50px); }
+}
+
+/* Tech stack marquee — scrolls forever along the hero base */
+.tech-marquee {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  overflow: hidden;
+  padding: 10px 0;
+  border-top: 1px solid var(--border);
+  background: rgba(5,5,8,0.55);
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  z-index: 1;
+}
+
+.tech-track {
+  display: flex;
+  width: max-content;
+  gap: 34px;
+  animation: marquee 34s linear infinite;
+}
+
+.tech-track span {
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+/* the track holds the list twice; shifting by half loops seamlessly */
+@keyframes marquee {
+  to { transform: translateX(-50%); }
+}
+
+/* Timeline marker dots keep pulsing, not just on reveal */
+.marker-dot {
+  animation: dotPulse 2.6s ease-in-out infinite;
+  animation-delay: calc(var(--d, 0) * 1ms);
+}
+
+@keyframes dotPulse {
+  0%, 100% { box-shadow: 0 0 10px rgba(0,212,255,0.35); }
+  50%      { box-shadow: 0 0 22px rgba(0,212,255,0.75); }
+}
+
+/* Skill icons idle-float, offset per card so the grid shimmers */
+.skills-grid .skill-card:nth-child(odd)  .skill-icon { animation: iconFloat 4.2s ease-in-out infinite; }
+.skills-grid .skill-card:nth-child(even) .skill-icon { animation: iconFloat 4.2s ease-in-out 2.1s infinite; }
+
+.skill-card:hover .skill-icon { animation: none; }
+
+@keyframes iconFloat {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-4px); }
+}
+
+/* Ambient motion is deliberately NOT gated on prefers-reduced-motion:
+   it is slow, looping and not scroll-linked. The scroll-triggered
+   entrances above are what that setting switches off. */
+
+@media (max-width: 640px) {
+  /* phones keep the motion; just scale it to the viewport */
+  .orb-1 { width: 220px; height: 220px; }
+  .orb-2 { width: 190px; height: 190px; }
+  .orb-3 { width: 150px; height: 150px; }
+  .tech-track { gap: 22px; animation-duration: 26s; }
+  .tech-track span { font-size: 0.66rem; letter-spacing: 0.1em; }
+}
+
+/* Marquee occupies the hero base — lift the scroll hint clear of it */
+.scroll-indicator { bottom: 62px; }
+.hero { padding-bottom: 150px; }
+
+@media (max-height: 820px) {
+  .hero { padding-bottom: 80px; }
+}
+
+@media (max-width: 640px) {
+  /* marquee now shows on phones too, so keep clearance for it */
+  .hero { padding-bottom: 96px; }
 }
