@@ -166,6 +166,8 @@ nav .container {
   justify-content: center;
   position: relative;
   padding-top: 80px;
+  /* reserve room for .scroll-indicator so it never overlaps .hero-cta */
+  padding-bottom: 110px;
   background: radial-gradient(ellipse at 50% 40%, rgba(123,44,191,0.18) 0%, transparent 65%);
   overflow: hidden;
 }
@@ -350,7 +352,7 @@ nav .container {
 /* Scroll indicator */
 .scroll-indicator {
   position: absolute;
-  bottom: 36px;
+  bottom: 28px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -361,6 +363,12 @@ nav .container {
   animation: fadeIn 1s ease 1.2s forwards;
   color: var(--text-muted);
   font-size: 0.75rem;
+}
+
+/* short viewports: hero content needs the full height, drop the hint */
+@media (max-height: 820px) {
+  .scroll-indicator { display: none; }
+  .hero { padding-bottom: 40px; }
 }
 
 .mouse {
@@ -1149,6 +1157,8 @@ footer {
 @media (max-width: 640px) {
   .hero-stats { gap: 24px; }
   .hero-cta { flex-direction: column; align-items: center; }
+  .hero { padding-bottom: 60px; }
+  .scroll-indicator { display: none; }
   .btn { width: 100%; max-width: 300px; justify-content: center; }
   .about-visual { flex-direction: column; align-items: center; }
   .about-numbers { grid-template-columns: 1fr; }
