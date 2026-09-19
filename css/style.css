@@ -1178,3 +1178,190 @@ footer {
   .cert-card { flex-direction: column; }
   .section-header h2 { font-size: 1.6rem; }
 }
+
+/* ─── DevOps motion layer ─────────────────────────────────────────── */
+
+/* Hero: slow drift on the infrastructure grid */
+.hero-bg-grid {
+  animation: gridDrift 60s linear infinite;
+}
+
+@keyframes gridDrift {
+  to { background-position: 60px 60px; }
+}
+
+/* Hero: CI/CD pipeline strip — stages cycle pending → running → passed */
+.hero-pipeline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 0 auto 26px;
+  opacity: 0;
+  animation: fadeIn 0.8s ease 0.5s forwards;
+}
+
+.pipe-stage {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 14px;
+  border: 1px solid var(--border);
+  border-radius: 50px;
+  background: rgba(255,255,255,0.02);
+  color: var(--text-muted);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  animation: pipeStage 8s ease-in-out infinite;
+  animation-delay: calc(var(--i) * 0.85s);
+}
+
+.pipe-stage i { font-size: 0.82rem; }
+
+.pipe-arrow {
+  width: 24px; height: 2px;
+  border-radius: 1px;
+  background: var(--border);
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.pipe-arrow::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--grad);
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: pipeFlow 8s ease-in-out infinite;
+  animation-delay: calc(var(--i) * 0.85s);
+}
+
+@keyframes pipeStage {
+  0%, 8%   { border-color: var(--border); color: var(--text-muted); box-shadow: none; }
+  15%, 24% { border-color: rgba(0,212,255,0.55); color: var(--primary); box-shadow: 0 0 16px rgba(0,212,255,0.18); }
+  31%, 88% { border-color: rgba(34,197,94,0.45); color: #22c55e; box-shadow: none; }
+  100%     { border-color: var(--border); color: var(--text-muted); box-shadow: none; }
+}
+
+@keyframes pipeFlow {
+  0%, 12%  { transform: scaleX(0); }
+  27%, 90% { transform: scaleX(1); }
+  100%     { transform: scaleX(0); }
+}
+
+/* Staggered reveal: children roll in one after another */
+.reveal.stagger {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+.reveal.stagger > *:not(.timeline-line) {
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+.reveal.stagger.active > *:not(.timeline-line) {
+  animation: staggerIn 0.55s cubic-bezier(0.22, 0.8, 0.3, 1) forwards;
+  animation-delay: calc(var(--d, 0) * 1ms);
+}
+
+@keyframes staggerIn {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Timeline as a deploy pipeline: the line draws, each stage ripples */
+.timeline-line {
+  transform: scaleY(0);
+  transform-origin: top;
+}
+
+.timeline.active .timeline-line {
+  animation: pipeDraw 1.1s ease forwards;
+}
+
+@keyframes pipeDraw {
+  to { transform: scaleY(1); }
+}
+
+.marker-dot { position: relative; }
+
+.marker-dot::after {
+  content: '';
+  position: absolute;
+  inset: -5px;
+  border-radius: 50%;
+  border: 2px solid rgba(0,212,255,0.5);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.timeline.active .marker-dot::after {
+  animation: deployRipple 2.2s ease-out 2;
+  animation-delay: calc(var(--d, 0) * 1ms + 350ms);
+}
+
+@keyframes deployRipple {
+  0%   { transform: scale(0.65); opacity: 0.75; }
+  100% { transform: scale(1.75); opacity: 0; }
+}
+
+/* Skill cards: icon springs on hover, light sweeps across the card */
+.skill-icon {
+  display: inline-block;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.skill-card:hover .skill-icon {
+  transform: translateY(-3px) rotate(-7deg) scale(1.1);
+}
+
+.skill-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 45%;
+  height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(0,212,255,0.07), transparent);
+  transform: skewX(-18deg);
+  pointer-events: none;
+  opacity: 0;
+}
+
+.skill-card:hover::after {
+  animation: cardSweep 0.85s ease forwards;
+}
+
+@keyframes cardSweep {
+  0%   { left: -60%; opacity: 1; }
+  100% { left: 115%;  opacity: 0; }
+}
+
+/* Cert + community cards: arrow nudges on hover */
+.cert-card:hover .cert-link i,
+.community-card:hover .community-link i {
+  transform: translateX(4px);
+}
+
+.cert-link i,
+.community-link i {
+  transition: transform 0.25s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal.stagger > *:not(.timeline-line) { opacity: 1; transform: none; }
+  .timeline-line { transform: scaleY(1); }
+  .hero-pipeline { opacity: 1; }
+  .marker-dot::after { display: none; }
+}
+
+@media (max-width: 640px) {
+  /* pipeline strip does not fit a phone width — drop it */
+  .hero-pipeline { display: none; }
+}

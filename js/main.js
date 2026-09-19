@@ -1,15 +1,66 @@
 // ─── Scroll reveal ───────────────────────────────────────────────
 const revealEls = document.querySelectorAll('.reveal');
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-function reveal() {
-  revealEls.forEach(el => {
-    const top = el.getBoundingClientRect().top;
-    if (top < window.innerHeight - 100) el.classList.add('active');
-  });
+// Stagger children of .stagger containers: 90ms apart, capped so long
+// grids don't leave the last card waiting.
+document.querySelectorAll('.stagger').forEach(container => {
+  [...container.children]
+    .filter(child => !child.classList.contains('timeline-line'))
+    .forEach((child, i) => child.style.setProperty('--d', Math.min(i * 90, 720)));
+});
+
+if ('IntersectionObserver' in window) {
+  const io = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('active');
+      obs.unobserve(entry.target);
+    });
+  }, { rootMargin: '0px 0px -100px 0px' });
+
+  revealEls.forEach(el => io.observe(el));
+} else {
+  // No IntersectionObserver: show everything rather than hide it.
+  revealEls.forEach(el => el.classList.add('active'));
 }
 
-window.addEventListener('scroll', reveal, { passive: true });
-window.addEventListener('load', reveal);
+// ─── Stat counters ───────────────────────────────────────────────
+function countUp(el) {
+  const target = Number(el.dataset.countTo);
+  const suffix = el.dataset.countSuffix || '';
+  if (!Number.isFinite(target)) return;
+
+  if (reducedMotion) {
+    el.textContent = target + suffix;
+    return;
+  }
+
+  const duration = 1400;
+  const start = performance.now();
+
+  function step(now) {
+    const p = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - p, 3);          // easeOutCubic
+    el.textContent = Math.round(target * eased) + suffix;
+    if (p < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+
+const counters = document.querySelectorAll('[data-count-to]');
+
+if (counters.length && 'IntersectionObserver' in window) {
+  const counterIO = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      countUp(entry.target);
+      obs.unobserve(entry.target);
+    });
+  }, { threshold: 0.5 });
+
+  counters.forEach(el => counterIO.observe(el));
+}
 
 // ─── Navbar scroll style ─────────────────────────────────────────
 const navbar = document.querySelector('nav');
